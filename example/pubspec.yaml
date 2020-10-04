@@ -1,0 +1,27 @@
+name: example
+description: Example for Random Color Scheme.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.10.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  url_launcher: ^5.5.0
+  hsluv: ^1.0.5
+  flutter_feather_icons: ^1.0.3
+  random_color_scheme:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
