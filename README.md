@@ -9,7 +9,7 @@ On each run, hot refresh or hot restart, the app is going to look different. The
 
 The interactive sample allows you to see how it works and the reasoning behind:
 
-<a href="https://bernaferrari.github.io/RandomColorScheme"><img src="assets/try_here.png" height="50"/></a>
+<a href="https://bernaferrari.github.io/RandomColorScheme/"><img src="assets/try_here.png" height="50"/></a>
 
 [![Random Color Scheme](assets/sample_preview.png)](https://bernaferrari.github.io/RandomColorScheme/)
 
