@@ -12,11 +12,12 @@ const _kSurface = 'surface';
 const _kBackground = 'background';
 
 /// Method to generate a random Color Scheme that's either light or dark.
-ColorScheme randomColorScheme({int seed, bool isDark = true}) {
+ColorScheme randomColorScheme(
+    {int seed, bool isDark = true, bool shouldPrint = true}) {
   if (isDark) {
-    return randomColorSchemeDark(seed: seed);
+    return randomColorSchemeDark(seed: seed, shouldPrint: shouldPrint);
   } else {
-    return randomColorSchemeLight(seed: seed);
+    return randomColorSchemeLight(seed: seed, shouldPrint: shouldPrint);
   }
 }
 
@@ -24,10 +25,13 @@ ColorScheme randomColorScheme({int seed, bool isDark = true}) {
 /// Properties set: [primary, primaryVariant, secondary, surface, background]
 ///
 /// Input: an optional seed for the Random function.
+///
+/// Input: an option bool to enable/disable printing to console
 /// Output: a random ColorScheme.
-ColorScheme randomColorSchemeDark({int seed}) {
+ColorScheme randomColorSchemeDark({int seed, bool shouldPrint = true}) {
   final colors = _getRandomMaterialDark(seed: seed);
-  print('''
+  if (shouldPrint) {
+    print('''
 ColorScheme.dark(
     primary: ${colors[_kPrimary].toColor()},
     primaryVariant: ${colors[_kPrimaryVariant].toColor()},
@@ -36,6 +40,7 @@ ColorScheme.dark(
     background: ${colors[_kBackground].toColor()},
 )
 ''');
+  }
 
   return ColorScheme.dark(
     primary: colors[_kPrimary].toColor(),
@@ -50,11 +55,14 @@ ColorScheme.dark(
 /// Properties set: [primary, primaryVariant, secondary, surface, background]
 ///
 /// Input: an optional seed for the Random function.
+///
+/// Input: an option bool to enable/disable printing to console
 /// Output: a random ColorScheme.
-ColorScheme randomColorSchemeLight({int seed}) {
+ColorScheme randomColorSchemeLight({int seed, bool shouldPrint = true}) {
   final colors = _getRandomMaterialLight(seed: seed);
 
-  print('''
+  if (shouldPrint) {
+    print('''
 ColorScheme.light(
     primary: ${colors[_kPrimary].toColor()},
     primaryVariant: ${colors[_kPrimaryVariant].toColor()},
@@ -63,6 +71,7 @@ ColorScheme.light(
     background: ${colors[_kBackground].toColor()},
 )
 ''');
+  }
 
   return ColorScheme.light(
     primary: colors[_kPrimary].toColor(),
