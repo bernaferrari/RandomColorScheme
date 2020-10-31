@@ -1,4 +1,4 @@
-![Image of Fast Dark Theme](assets/readme.png)
+![Image of Random Color Scheme](assets/readme.png)
 
 # Random Color Scheme
 
@@ -24,8 +24,8 @@ dependencies:
   random_color_scheme: ^VERSION
 ```
 
-In your project, just replace the `ColorScheme.dark(...)` with `RandomColorSchemeDark()`.
-If you want a light theme, there is a `RandomColorSchemeLight()`.
+In your project, just replace the `ColorScheme.dark(...)` with `randomColorSchemeDark()`.
+If you want a light theme, there is a `randomColorSchemeLight()`.
 
 ```dart
 import 'package:random_colorscheme/random_color_scheme.dart';
@@ -46,9 +46,9 @@ HSLuv is great because only the Lightness attribute affects WCAG calculated cont
 a minimum accessibility threshold.
 
 #### Function listing
-- `randomColorSchemeDark(seed: null | int)`
-- `randomColorSchemeLight(seed: null | int)`
-- `randomColorScheme(seed: null | int, isDark: bool)`
+- `randomColorSchemeDark(seed: null | int): ColorScheme`
+- `randomColorSchemeLight(seed: null | int): ColorScheme`
+- `randomColorScheme(seed: null | int, isDark: bool): ColorScheme`
 
 Seed: an integer which guarantees the random function is always going to have the same output (i.e., the same ColorScheme).
 It is optional.
