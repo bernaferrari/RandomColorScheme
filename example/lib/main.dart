@@ -112,7 +112,7 @@ class ThemeList extends StatelessWidget {
               child: Text(
                 """
 This is the sample for a library.
-The idea is for you to plug RandomColorScheme() into your apps and discover new material themes.""",
+The idea is for you to plug randomColorScheme() into your apps and discover new material themes.""",
                 style: Theme.of(context).textTheme.subtitle2,
                 textAlign: TextAlign.center,
               ),
