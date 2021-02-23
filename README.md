@@ -1,4 +1,4 @@
-![Image of Random Color Scheme](assets/readme.png)
+![Image of Random Color Scheme](https://github.com/bernaferrari/RandomColorScheme/raw/main/assets/readme.png)
 
 # Random Color Scheme
 
@@ -9,9 +9,9 @@ On each run, hot refresh or hot restart, the app is going to look different. The
 
 The interactive sample allows you to see how it works and the reasoning behind:
 
-<a href="https://bernaferrari.github.io/RandomColorScheme/"><img src="assets/try_here.png" height="50"/></a>
+<a href="https://bernaferrari.github.io/RandomColorScheme/"><img src="https://github.com/bernaferrari/RandomColorScheme/raw/main/assets/try_here.png" height="50"/></a>
 
-[![Random Color Scheme](assets/sample_preview.png)](https://bernaferrari.github.io/RandomColorScheme/)
+[![Random Color Scheme](https://github.com/bernaferrari/RandomColorScheme/raw/main/assets/sample_preview.png)](https://bernaferrari.github.io/RandomColorScheme/)
 
 ## Usage
 

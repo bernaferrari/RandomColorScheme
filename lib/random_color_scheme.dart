@@ -13,7 +13,7 @@ const _kBackground = 'background';
 
 /// Method to generate a random Color Scheme that's either light or dark.
 ColorScheme randomColorScheme(
-    {int seed, bool isDark = true, bool shouldPrint = true}) {
+    {int? seed, bool isDark = true, bool shouldPrint = true}) {
   if (isDark) {
     return randomColorSchemeDark(seed: seed, shouldPrint: shouldPrint);
   } else {
@@ -28,26 +28,26 @@ ColorScheme randomColorScheme(
 ///
 /// Input: an option bool to enable/disable printing to console
 /// Output: a random ColorScheme.
-ColorScheme randomColorSchemeDark({int seed, bool shouldPrint = true}) {
+ColorScheme randomColorSchemeDark({int? seed, bool shouldPrint = true}) {
   final colors = _getRandomMaterialDark(seed: seed);
   if (shouldPrint) {
     print('''
 ColorScheme.dark(
-    primary: ${colors[_kPrimary].toColor()},
-    primaryVariant: ${colors[_kPrimaryVariant].toColor()},
-    secondary: ${colors[_kSecondary].toColor()},
-    surface: ${colors[_kSurface].toColor()},
-    background: ${colors[_kBackground].toColor()},
+    primary: ${colors[_kPrimary]!.toColor()},
+    primaryVariant: ${colors[_kPrimaryVariant]!.toColor()},
+    secondary: ${colors[_kSecondary]!.toColor()},
+    surface: ${colors[_kSurface]!.toColor()},
+    background: ${colors[_kBackground]!.toColor()},
 )
 ''');
   }
 
   return ColorScheme.dark(
-    primary: colors[_kPrimary].toColor(),
-    primaryVariant: colors[_kPrimaryVariant].toColor(),
-    secondary: colors[_kSecondary].toColor(),
-    surface: colors[_kSurface].toColor(),
-    background: colors[_kBackground].toColor(),
+    primary: colors[_kPrimary]!.toColor(),
+    primaryVariant: colors[_kPrimaryVariant]!.toColor(),
+    secondary: colors[_kSecondary]!.toColor(),
+    surface: colors[_kSurface]!.toColor(),
+    background: colors[_kBackground]!.toColor(),
   );
 }
 
@@ -58,27 +58,27 @@ ColorScheme.dark(
 ///
 /// Input: an option bool to enable/disable printing to console
 /// Output: a random ColorScheme.
-ColorScheme randomColorSchemeLight({int seed, bool shouldPrint = true}) {
+ColorScheme randomColorSchemeLight({int? seed, bool shouldPrint = true}) {
   final colors = _getRandomMaterialLight(seed: seed);
 
   if (shouldPrint) {
     print('''
 ColorScheme.light(
-    primary: ${colors[_kPrimary].toColor()},
-    primaryVariant: ${colors[_kPrimaryVariant].toColor()},
-    secondary: ${colors[_kSecondary].toColor()},
-    surface: ${colors[_kSurface].toColor()},
-    background: ${colors[_kBackground].toColor()},
+    primary: ${colors[_kPrimary]!.toColor()},
+    primaryVariant: ${colors[_kPrimaryVariant]!.toColor()},
+    secondary: ${colors[_kSecondary]!.toColor()},
+    surface: ${colors[_kSurface]!.toColor()},
+    background: ${colors[_kBackground]!.toColor()},
 )
 ''');
   }
 
   return ColorScheme.light(
-    primary: colors[_kPrimary].toColor(),
-    primaryVariant: colors[_kPrimaryVariant].toColor(),
-    secondary: colors[_kSecondary].toColor(),
-    surface: colors[_kSurface].toColor(),
-    background: colors[_kBackground].toColor(),
+    primary: colors[_kPrimary]!.toColor(),
+    primaryVariant: colors[_kPrimaryVariant]!.toColor(),
+    secondary: colors[_kSecondary]!.toColor(),
+    surface: colors[_kSurface]!.toColor(),
+    background: colors[_kBackground]!.toColor(),
   );
 }
 
@@ -123,7 +123,7 @@ ColorScheme.light(
 /// Surface's lightness can be lower than background's lightness.
 /// That was a deliberate choice.
 ///
-Map<String, HSLuvColor> _getRandomMaterialDark({int seed}) {
+Map<String, HSLuvColor> _getRandomMaterialDark({int? seed}) {
   final rng = math.Random(seed);
 
   // avoid too similar values between background and surface.
@@ -197,7 +197,7 @@ Map<String, HSLuvColor> _getRandomMaterialDark({int seed}) {
 /// SURFACE
 /// Has a lightness between [25, 45].
 ///
-Map<String, HSLuvColor> _getRandomMaterialLight({int seed}) {
+Map<String, HSLuvColor> _getRandomMaterialLight({int? seed}) {
   final rng = math.Random(seed);
 
   final primaryHue = rng.nextInt(360);
