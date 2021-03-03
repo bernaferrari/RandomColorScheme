@@ -8,6 +8,7 @@ import 'package:hsluv/hsluvcolor.dart';
 const _kPrimary = 'primary';
 const _kPrimaryVariant = 'primaryVariant';
 const _kSecondary = 'secondary';
+const _kSecondaryVariant = 'secondaryVariant';
 const _kSurface = 'surface';
 const _kBackground = 'background';
 
@@ -36,6 +37,7 @@ ColorScheme.dark(
     primary: ${colors[_kPrimary]!.toColor()},
     primaryVariant: ${colors[_kPrimaryVariant]!.toColor()},
     secondary: ${colors[_kSecondary]!.toColor()},
+    secondaryVariant: ${colors[_kSecondaryVariant]!.toColor()},
     surface: ${colors[_kSurface]!.toColor()},
     background: ${colors[_kBackground]!.toColor()},
 )
@@ -46,6 +48,7 @@ ColorScheme.dark(
     primary: colors[_kPrimary]!.toColor(),
     primaryVariant: colors[_kPrimaryVariant]!.toColor(),
     secondary: colors[_kSecondary]!.toColor(),
+    secondaryVariant: colors[_kSecondaryVariant]!.toColor(),
     surface: colors[_kSurface]!.toColor(),
     background: colors[_kBackground]!.toColor(),
   );
@@ -67,6 +70,7 @@ ColorScheme.light(
     primary: ${colors[_kPrimary]!.toColor()},
     primaryVariant: ${colors[_kPrimaryVariant]!.toColor()},
     secondary: ${colors[_kSecondary]!.toColor()},
+    secondaryVariant: ${colors[_kSecondaryVariant]!.toColor()},
     surface: ${colors[_kSurface]!.toColor()},
     background: ${colors[_kBackground]!.toColor()},
 )
@@ -77,6 +81,7 @@ ColorScheme.light(
     primary: colors[_kPrimary]!.toColor(),
     primaryVariant: colors[_kPrimaryVariant]!.toColor(),
     secondary: colors[_kSecondary]!.toColor(),
+    secondaryVariant: colors[_kSecondaryVariant]!.toColor(),
     surface: colors[_kSurface]!.toColor(),
     background: colors[_kBackground]!.toColor(),
   );
@@ -137,6 +142,8 @@ Map<String, HSLuvColor> _getRandomMaterialDark({int? seed}) {
   final primarySaturation = 60 + rng.nextInt(41).toDouble();
   final primaryLightness = 65 + rng.nextInt(21).toDouble();
 
+  final secondaryHue = ((primaryHue + 90 + rng.nextInt(90)) % 360).toDouble();
+
   return {
     _kPrimary: HSLuvColor.fromHSL(
       primaryHue.toDouble(),
@@ -149,9 +156,14 @@ Map<String, HSLuvColor> _getRandomMaterialDark({int? seed}) {
       primaryLightness - 10.0,
     ),
     _kSecondary: HSLuvColor.fromHSL(
-      ((primaryHue + 90 + rng.nextInt(90)) % 360).toDouble(),
+      secondaryHue,
       primarySaturation,
       primaryLightness,
+    ),
+    _kSecondaryVariant: HSLuvColor.fromHSL(
+      secondaryHue,
+      primarySaturation,
+      primaryLightness - 10.0,
     ),
     _kSurface: HSLuvColor.fromHSL(
       rng.nextInt(360).toDouble(),
@@ -204,6 +216,8 @@ Map<String, HSLuvColor> _getRandomMaterialLight({int? seed}) {
   final primarySaturation = 80.0 + rng.nextInt(16);
   final primaryLightness = 25 + rng.nextInt(21);
 
+  final secondaryHue = ((primaryHue + 90 + rng.nextInt(90)) % 360).toDouble();
+
   return {
     _kPrimary: HSLuvColor.fromHSL(
       primaryHue.toDouble(),
@@ -216,9 +230,14 @@ Map<String, HSLuvColor> _getRandomMaterialLight({int? seed}) {
       primaryLightness - 10.0,
     ),
     _kSecondary: HSLuvColor.fromHSL(
-      ((primaryHue + 90 + rng.nextInt(90)) % 360).toDouble(),
+      secondaryHue,
       primarySaturation,
       primaryLightness.toDouble(),
+    ),
+    _kSecondaryVariant: HSLuvColor.fromHSL(
+      secondaryHue,
+      primarySaturation,
+      primaryLightness - 10.0,
     ),
     _kSurface: HSLuvColor.fromHSL(
       rng.nextInt(360).toDouble(),

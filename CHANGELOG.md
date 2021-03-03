@@ -1,3 +1,6 @@
+## [0.1.3] - 03/03/2021.
+* Add secondaryVariant.
+
 ## [0.1.1] - 23/02/2021.
 * Update package description and README images to work in pub.dev.
 
