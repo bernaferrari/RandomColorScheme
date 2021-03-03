@@ -9,7 +9,7 @@ class ColorOutput extends StatefulWidget {
 }
 
 class _ColorOutputState extends State<ColorOutput> {
-  int currentSegment;
+  late int currentSegment;
 
   final Map<int, Widget> children = const <int, Widget>{
     0: Text("HEX"),
@@ -20,7 +20,7 @@ class _ColorOutputState extends State<ColorOutput> {
 
   @override
   void initState() {
-    currentSegment = PageStorage.of(context).readState(
+    currentSegment = PageStorage.of(context)?.readState(
           context,
           identifier: const ValueKey("Selectable"),
         ) ??
@@ -68,7 +68,7 @@ class _ColorOutputState extends State<ColorOutput> {
             onValueChanged: onValueChanged,
             groupValue: currentSegment,
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 8.0),
           for (int i = 0; i < arr.length; i++)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -76,7 +76,7 @@ class _ColorOutputState extends State<ColorOutput> {
                 style: OutlinedButton.styleFrom(
                   primary: arr[i],
                   padding: EdgeInsets.all(16.0),
-                  side: BorderSide(color: arr[i], width: 2),
+                  side: BorderSide(color: arr[i], width: 2.0),
                 ),
                 child: Text(
                   arr[i].retrieveColorStr(currentSegment),
@@ -97,10 +97,14 @@ class _ColorOutputState extends State<ColorOutput> {
     );
   }
 
-  void onValueChanged(int newValue) {
+  void onValueChanged(int? newValue) {
+    if (newValue == null) {
+      return;
+    }
+
     setState(() {
       currentSegment = newValue;
-      PageStorage.of(context).writeState(
+      PageStorage.of(context)?.writeState(
         context,
         currentSegment,
         identifier: const ValueKey("Selectable"),

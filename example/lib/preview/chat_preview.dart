@@ -8,16 +8,16 @@ class ChatPreview extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          SizedBox(height: 8),
+          SizedBox(height: 8.0),
           Text(
             "Chat",
             style: TextStyle(
-                color: primary, fontSize: 22, fontWeight: FontWeight.w800),
+                color: primary, fontSize: 22.0, fontWeight: FontWeight.w800),
           ),
           Text(
             "14 participants",
             style: TextStyle(
-                color: primary, fontSize: 14, fontWeight: FontWeight.w700),
+                color: primary, fontSize: 14.0, fontWeight: FontWeight.w700),
           ),
           // ListTile(
           //   title: Text("Bernardo"),
@@ -44,13 +44,13 @@ class ChatPreview extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Icon(
                 Icons.wb_sunny_outlined,
-                size: 24,
+                size: 24.0,
                 color: primary,
               ),
             ),
             trailing: Icon(
               Icons.done,
-              size: 16,
+              size: 16.0,
               color: primary,
             ),
           ),
@@ -61,7 +61,7 @@ class ChatPreview extends StatelessWidget {
                 Icons.graphic_eq,
                 color: primary,
               ),
-              SizedBox(width: 8),
+              SizedBox(width: 8.0),
               Icon(
                 Icons.graphic_eq,
                 color: Theme.of(context).colorScheme.secondary,

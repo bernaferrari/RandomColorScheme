@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -42,16 +41,16 @@ class _RefreshableHomeState extends State<RefreshableHome> {
         actions: [
           IconButton(
             icon: Icon(
-              FeatherIcons.github,
+              Icons.code_rounded,
               color: Colors.black,
             ),
-            tooltip: "GitHub",
+            tooltip: "Source",
             onPressed: () async {
               await launch("https://github.com/bernaferrari/RandomColorScheme");
             },
           )
         ],
-        elevation: 0,
+        elevation: 0.0,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -72,7 +71,7 @@ class ThemeList extends StatelessWidget {
 
   ThemeList(this.refresh);
 
-  Theme customTheme({Widget child, int i, bool isDark}) {
+  Theme customTheme({Widget? child, required int i, required bool isDark}) {
     return Theme(
       data: ThemeData(
         colorScheme: randomColorScheme(seed: i + refresh, isDark: isDark),
@@ -84,7 +83,7 @@ class ThemeList extends StatelessWidget {
           ),
         ),
         cardTheme: CardTheme(
-          elevation: 0,
+          elevation: 0.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
@@ -103,10 +102,12 @@ class ThemeList extends StatelessWidget {
       child: ListView(
         children: [
           Card(
-            elevation: 0,
+            elevation: 0.0,
+            color: Color(0xffECFDF5),
             shape: RoundedRectangleBorder(
-                side: BorderSide(width: 2, color: Color(0xff00ba7c)),
-                borderRadius: BorderRadius.circular(8)),
+              side: BorderSide(width: 2.0, color: Color(0xffA7F3D0)),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -151,7 +152,7 @@ class ThemeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Theme.of(context).colorScheme.background,
-      elevation: 0,
+      elevation: 0.0,
       child: Row(
         children: [
           Expanded(child: SocialPreview()),
