@@ -7,13 +7,15 @@ import 'preview/chat_preview.dart';
 import 'preview/social_preview.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Random Color Scheme',
       home: RefreshableHome(),
     );
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class RefreshableHome extends StatefulWidget {
+  const RefreshableHome({Key? key}) : super(key: key);
+
   @override
   _RefreshableHomeState createState() => _RefreshableHomeState();
 }
@@ -34,13 +38,13 @@ class _RefreshableHomeState extends State<RefreshableHome> {
       body: ThemeList(refreshSeed),
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Random Color Scheme",
           style: TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.code_rounded,
               color: Colors.black,
             ),
@@ -50,7 +54,7 @@ class _RefreshableHomeState extends State<RefreshableHome> {
             },
           )
         ],
-        elevation: 0.0,
+        elevation: 0,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -58,8 +62,8 @@ class _RefreshableHomeState extends State<RefreshableHome> {
             refreshSeed += 25;
           });
         },
-        label: Text("Refresh"),
-        icon: Icon(Icons.refresh),
+        label: const Text("Refresh"),
+        icon: const Icon(Icons.refresh),
         backgroundColor: Colors.red[500],
       ),
     );
@@ -69,7 +73,7 @@ class _RefreshableHomeState extends State<RefreshableHome> {
 class ThemeList extends StatelessWidget {
   final int refresh;
 
-  ThemeList(this.refresh);
+  const ThemeList(this.refresh, {Key? key}) : super(key: key);
 
   Theme customTheme({Widget? child, required int i, required bool isDark}) {
     return Theme(
@@ -78,14 +82,14 @@ class ThemeList extends StatelessWidget {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
         ),
         cardTheme: CardTheme(
-          elevation: 0.0,
+          elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(8),
           ),
         ),
       ),
@@ -98,18 +102,18 @@ class ThemeList extends StatelessWidget {
     final condition = MediaQuery.of(context).size.width > 950;
 
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(4),
       child: ListView(
         children: [
           Card(
-            elevation: 0.0,
-            color: Color(0xffECFDF5),
+            elevation: 0,
+            color: const Color(0xffECFDF5),
             shape: RoundedRectangleBorder(
-              side: BorderSide(width: 2.0, color: Color(0xffA7F3D0)),
-              borderRadius: BorderRadius.circular(8.0),
+              side: const BorderSide(width: 2, color: Color(0xffA7F3D0)),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16),
               child: Text(
                 """
 This is the sample for a library.
@@ -126,7 +130,7 @@ The idea is for you to plug randomColorScheme() into your apps and discover new 
                 Flexible(
                   flex: condition ? 1 : 0,
                   child: customTheme(
-                    child: ThemeItem(),
+                    child: const ThemeItem(),
                     i: i,
                     isDark: true,
                   ),
@@ -134,7 +138,7 @@ The idea is for you to plug randomColorScheme() into your apps and discover new 
                 Flexible(
                   flex: condition ? 1 : 0,
                   child: customTheme(
-                    child: ThemeItem(),
+                    child: const ThemeItem(),
                     i: i,
                     isDark: false,
                   ),
@@ -148,13 +152,15 @@ The idea is for you to plug randomColorScheme() into your apps and discover new 
 }
 
 class ThemeItem extends StatelessWidget {
+  const ThemeItem({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Card(
       color: Theme.of(context).colorScheme.background,
-      elevation: 0.0,
+      elevation: 0,
       child: Row(
-        children: [
+        children: const [
           Expanded(child: SocialPreview()),
           Expanded(child: ChatPreview()),
         ],
