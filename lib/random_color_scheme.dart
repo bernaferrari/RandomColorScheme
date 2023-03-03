@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:hsluv/hsluvcolor.dart';
 
 const _kPrimary = 'primary';
-const _kPrimaryVariant = 'primaryVariant';
+const _kPrimaryContainer = 'primaryContainer';
 const _kSecondary = 'secondary';
-const _kSecondaryVariant = 'secondaryVariant';
+const _kSecondaryContainer = 'secondaryContainer';
 const _kSurface = 'surface';
 const _kBackground = 'background';
 
@@ -35,9 +35,9 @@ ColorScheme randomColorSchemeDark({int? seed, bool shouldPrint = true}) {
     print('''
 ColorScheme.dark(
     primary: ${colors[_kPrimary]!.toColor()},
-    primaryVariant: ${colors[_kPrimaryVariant]!.toColor()},
+    primaryContainer: ${colors[_kPrimaryContainer]!.toColor()},
     secondary: ${colors[_kSecondary]!.toColor()},
-    secondaryVariant: ${colors[_kSecondaryVariant]!.toColor()},
+    secondaryContainer: ${colors[_kSecondaryContainer]!.toColor()},
     surface: ${colors[_kSurface]!.toColor()},
     background: ${colors[_kBackground]!.toColor()},
 )
@@ -46,9 +46,9 @@ ColorScheme.dark(
 
   return ColorScheme.dark(
     primary: colors[_kPrimary]!.toColor(),
-    primaryVariant: colors[_kPrimaryVariant]!.toColor(),
+    primaryContainer: colors[_kPrimaryContainer]!.toColor(),
     secondary: colors[_kSecondary]!.toColor(),
-    secondaryVariant: colors[_kSecondaryVariant]!.toColor(),
+    secondaryContainer: colors[_kSecondaryContainer]!.toColor(),
     surface: colors[_kSurface]!.toColor(),
     background: colors[_kBackground]!.toColor(),
   );
@@ -68,9 +68,9 @@ ColorScheme randomColorSchemeLight({int? seed, bool shouldPrint = true}) {
     print('''
 ColorScheme.light(
     primary: ${colors[_kPrimary]!.toColor()},
-    primaryVariant: ${colors[_kPrimaryVariant]!.toColor()},
+    primaryContainer: ${colors[_kPrimaryContainer]!.toColor()},
     secondary: ${colors[_kSecondary]!.toColor()},
-    secondaryVariant: ${colors[_kSecondaryVariant]!.toColor()},
+    secondaryContainer: ${colors[_kSecondaryContainer]!.toColor()},
     surface: ${colors[_kSurface]!.toColor()},
     background: ${colors[_kBackground]!.toColor()},
 )
@@ -79,9 +79,9 @@ ColorScheme.light(
 
   return ColorScheme.light(
     primary: colors[_kPrimary]!.toColor(),
-    primaryVariant: colors[_kPrimaryVariant]!.toColor(),
+    primaryContainer: colors[_kPrimaryContainer]!.toColor(),
     secondary: colors[_kSecondary]!.toColor(),
-    secondaryVariant: colors[_kSecondaryVariant]!.toColor(),
+    secondaryContainer: colors[_kSecondaryContainer]!.toColor(),
     surface: colors[_kSurface]!.toColor(),
     background: colors[_kBackground]!.toColor(),
   );
@@ -150,7 +150,7 @@ Map<String, HSLuvColor> _getRandomMaterialDark({int? seed}) {
       primarySaturation,
       primaryLightness.toDouble(),
     ),
-    _kPrimaryVariant: HSLuvColor.fromHSL(
+    _kPrimaryContainer: HSLuvColor.fromHSL(
       primaryHue.toDouble(),
       primarySaturation,
       primaryLightness - 10.0,
@@ -160,7 +160,7 @@ Map<String, HSLuvColor> _getRandomMaterialDark({int? seed}) {
       primarySaturation,
       primaryLightness,
     ),
-    _kSecondaryVariant: HSLuvColor.fromHSL(
+    _kSecondaryContainer: HSLuvColor.fromHSL(
       secondaryHue,
       primarySaturation,
       primaryLightness - 10.0,
@@ -224,7 +224,7 @@ Map<String, HSLuvColor> _getRandomMaterialLight({int? seed}) {
       primarySaturation,
       primaryLightness.toDouble(),
     ),
-    _kPrimaryVariant: HSLuvColor.fromHSL(
+    _kPrimaryContainer: HSLuvColor.fromHSL(
       primaryHue.toDouble(),
       primarySaturation,
       primaryLightness - 10.0,
@@ -234,7 +234,7 @@ Map<String, HSLuvColor> _getRandomMaterialLight({int? seed}) {
       primarySaturation,
       primaryLightness.toDouble(),
     ),
-    _kSecondaryVariant: HSLuvColor.fromHSL(
+    _kSecondaryContainer: HSLuvColor.fromHSL(
       secondaryHue,
       primarySaturation,
       primaryLightness - 10.0,

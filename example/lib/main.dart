@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'preview/chat_preview.dart';
 import 'preview/social_preview.dart';
@@ -26,7 +25,7 @@ class RefreshableHome extends StatefulWidget {
   const RefreshableHome({Key? key}) : super(key: key);
 
   @override
-  _RefreshableHomeState createState() => _RefreshableHomeState();
+  State<RefreshableHome> createState() => _RefreshableHomeState();
 }
 
 class _RefreshableHomeState extends State<RefreshableHome> {
@@ -50,7 +49,8 @@ class _RefreshableHomeState extends State<RefreshableHome> {
             ),
             tooltip: "Source",
             onPressed: () async {
-              await launch("https://github.com/bernaferrari/RandomColorScheme");
+              await launchUrlString(
+                  "https://github.com/bernaferrari/RandomColorScheme");
             },
           )
         ],
@@ -93,7 +93,7 @@ class ThemeList extends StatelessWidget {
           ),
         ),
       ),
-      child: ThemeItem(),
+      child: const ThemeItem(),
     );
   }
 
@@ -118,7 +118,7 @@ class ThemeList extends StatelessWidget {
                 """
 This is the sample for a library.
 The idea is for you to plug randomColorScheme() into your apps and discover new material themes.""",
-                style: Theme.of(context).textTheme.subtitle2,
+                style: Theme.of(context).textTheme.titleSmall,
                 textAlign: TextAlign.center,
               ),
             ),

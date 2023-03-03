@@ -20,7 +20,7 @@ class SocialPreview extends StatelessWidget {
               "What's happening",
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .titleLarge
                   ?.copyWith(fontWeight: FontWeight.w900),
             ),
           ),
@@ -59,7 +59,7 @@ class SocialPreview extends StatelessWidget {
                 icon: const Icon(Icons.share_outlined),
                 label: Text(
                   "Export",
-                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: Theme.of(context).colorScheme.onPrimary,
                       ),
                 ),
@@ -75,9 +75,7 @@ class SocialPreview extends StatelessWidget {
                                 ? const Color(0xff080808)
                                 : Colors.white,
                         contentPadding: const EdgeInsets.all(8),
-                        children: <Widget>[
-                          ColorOutput(),
-                        ],
+                        children: const <Widget>[ColorOutput()],
                       );
                     },
                   );
@@ -136,8 +134,10 @@ class _NotButton extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               text,
-              style:
-                  Theme.of(context).textTheme.bodyText2?.copyWith(color: color),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: color),
               overflow: TextOverflow.ellipsis,
             ),
           ],

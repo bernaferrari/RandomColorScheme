@@ -7,12 +7,12 @@ class ColorOutput extends StatefulWidget {
   const ColorOutput({Key? key}) : super(key: key);
 
   @override
-  _ColorOutputState createState() => _ColorOutputState();
+  State<ColorOutput> createState() => _ColorOutputState();
 }
 
 class _ColorOutputState extends State<ColorOutput> {
   late int currentSegment = PageStorage.of(context)
-          ?.readState(context, identifier: const ValueKey("Selectable")) ??
+          .readState(context, identifier: const ValueKey("Selectable")) ??
       0;
 
   final Map<int, Widget> children = const <int, Widget>{
@@ -67,7 +67,7 @@ class _ColorOutputState extends State<ColorOutput> {
               padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  primary: arr[i],
+                  foregroundColor: arr[i],
                   padding: const EdgeInsets.all(16.0),
                   side: BorderSide(color: arr[i], width: 2.0),
                 ),
@@ -97,7 +97,7 @@ class _ColorOutputState extends State<ColorOutput> {
 
     setState(() {
       currentSegment = newValue;
-      PageStorage.of(context)?.writeState(context, currentSegment,
+      PageStorage.of(context).writeState(context, currentSegment,
           identifier: const ValueKey("Selectable"));
     });
   }
