@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="doc/brand/app-icon.svg" width="80" height="80" alt="Random Color Scheme app icon">
+  <img src="https://raw.githubusercontent.com/bernaferrari/RandomColorScheme/main/doc/brand/app-icon.svg" width="80" height="80" alt="Random Color Scheme app icon">
 </p>
 
 <h1 align="center">Random Color Scheme</h1>
@@ -11,7 +11,7 @@
 <p align="center"><a href="https://bernaferrari.github.io/RandomColorScheme/"><strong>Try the live demo ↗</strong></a></p>
 
 <p align="center">
-  <img src="doc/screenshots/in-motion.webp" width="100%" alt="Shuffling through colourful light and dark Material 3 schemes.">
+  <img src="https://raw.githubusercontent.com/bernaferrari/RandomColorScheme/main/doc/screenshots/in-motion.webp" width="100%" alt="Shuffling through colourful light and dark Material 3 schemes.">
 </p>
 
 ## Usage
@@ -20,7 +20,7 @@
 
 ```yaml
 dependencies:
-  random_color_scheme: ^0.1.5
+  random_color_scheme: ^0.1.6
 ```
 
 Drop `randomColorSchemeDark()` or `randomColorSchemeLight()` into your `ThemeData`:
@@ -45,8 +45,8 @@ Pass `seed` to lock a palette, `variant` to pin a `DynamicSchemeVariant`, or `co
 
 <table>
   <tr>
-    <td><img src="doc/screenshots/variants.png" width="100%" alt="Expressive variant rendered across live Material 3 cards."></td>
-    <td><img src="doc/screenshots/dark-mode.png" width="100%" alt="Dark appearance with Fruit Salad variant."></td>
+    <td><img src="https://raw.githubusercontent.com/bernaferrari/RandomColorScheme/main/doc/screenshots/variants.png" width="100%" alt="Expressive variant rendered across live Material 3 cards."></td>
+    <td><img src="https://raw.githubusercontent.com/bernaferrari/RandomColorScheme/main/doc/screenshots/dark-mode.png" width="100%" alt="Dark appearance with Fruit Salad variant."></td>
   </tr>
 </table>
 
@@ -57,4 +57,4 @@ flutter pub get
 flutter run -d chrome
 ```
 
-Random Color Scheme is open source under the [MIT license](LICENSE).
+Random Color Scheme is open source under the [MIT license](https://github.com/bernaferrari/RandomColorScheme/blob/main/LICENSE).

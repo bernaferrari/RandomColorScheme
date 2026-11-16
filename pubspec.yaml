@@ -1,6 +1,6 @@
 name: random_color_scheme
 description: Generate light and dark color schemes to help you theme an app.
-version: 0.1.5
+version: 0.1.6
 homepage: https://github.com/bernaferrari/RandomColorScheme
 
 environment:

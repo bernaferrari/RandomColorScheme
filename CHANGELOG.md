@@ -1,3 +1,7 @@
+## [0.1.6]
+
+* Use absolute image URLs in README so previews render on pub.dev.
+
 ## [0.1.5]
 
 * Require Flutter 3.50+ / Dart 3.14+ and standalone `material_ui` types.
