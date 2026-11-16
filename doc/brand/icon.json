@@ -1,0 +1,13 @@
+{
+  "android": { "res": "example/android/app/src/main/res", "legacy": true },
+  "files": [
+    { "path": "doc/brand/app-icon.svg", "shape": "rounded" },
+    { "path": "example/web/favicon.svg", "shape": "rounded" },
+    { "path": "example/web/favicon.png", "size": 48, "shape": "rounded" },
+    { "path": "example/web/icons/Icon-192.png", "size": 192, "shape": "rounded" },
+    { "path": "example/web/icons/Icon-512.png", "size": 512, "shape": "rounded" },
+    { "path": "example/web/icons/Icon-maskable-192.png", "size": 192, "shape": "square" },
+    { "path": "example/web/icons/Icon-maskable-512.png", "size": 512, "shape": "square" },
+    { "path": "example/web/icons/Apple-touch-icon.png", "size": 180, "shape": "square" }
+  ]
+}

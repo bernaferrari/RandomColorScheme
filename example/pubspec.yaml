@@ -7,21 +7,28 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.1
 
 environment:
-  sdk: '>=2.19.0 <4.0.0'
+  sdk: ^3.14.0
+  flutter: '>=3.50.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: ^1.11.0
 
-  url_launcher: ^6.1.10
-  hsluv: ^1.1.2
+  url_launcher: ^6.3.3
   random_color_scheme:
     path: ../
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Instrument Serif
+      fonts:
+        - asset: assets/fonts/InstrumentSerif-Regular.ttf
+  assets:
+    - assets/fonts/InstrumentSerif-OFL.txt

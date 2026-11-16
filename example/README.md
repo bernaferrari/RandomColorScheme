@@ -1,7 +1,11 @@
-# Random Color Scheme Sample
+# Random Color Scheme Example
 
-This is the sample for the Random Color Scheme library. Check the full documentation [here](https://github.com/bernaferrari/RandomColorScheme).
+Interactive gallery for `random_color_scheme`. Preview Material 3 `DynamicSchemeVariant` palettes side by side in light and dark, inspect contrast, and copy ready-to-use Dart code.
 
-<a href="https://bernaferrari.github.io/RandomColorScheme"><img src="assets/try_here.png" height="50"/></a>
+- [Live web demo](https://bernaferrari.github.io/RandomColorScheme/)
+- [Package README](../README.md)
 
-[![Random Color Scheme](../assets/sample_preview.png)](https://bernaferrari.github.io/RandomColorScheme/)
+```sh
+flutter pub get
+flutter run -d chrome
+```

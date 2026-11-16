@@ -1,36 +1,65 @@
-import 'dart:ui';
-
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 void main() {
-  test('test simple dark scenario', () {
-    final colorScheme = randomColorSchemeDark(seed: 0);
-    expect(colorScheme.primary, Color(0xff89b9ee));
-    expect(colorScheme.primaryContainer, Color(0xff54a0e2));
-    expect(colorScheme.secondary, Color(0xfff1a28c));
-    expect(colorScheme.secondaryContainer, Color(0xffee7a4b));
-    expect(colorScheme.surface, Color(0xff0e0000));
-    expect(colorScheme.background, Color(0xff2a4024));
+  test(
+    'generated foregrounds meet 4.5:1 contrast across chromatic variants',
+    () {
+      for (var seed = 0; seed < 128; seed++) {
+        for (final isDark in [false, true]) {
+          final scheme = randomColorScheme(
+            seed: seed,
+            isDark: isDark,
+            shouldPrint: false,
+          );
+          for (final (background, foreground) in [
+            (scheme.primary, scheme.onPrimary),
+            (scheme.primaryContainer, scheme.onPrimaryContainer),
+            (scheme.secondary, scheme.onSecondary),
+            (scheme.secondaryContainer, scheme.onSecondaryContainer),
+            (scheme.surface, scheme.onSurface),
+          ]) {
+            final first = background.computeLuminance() + 0.05;
+            final second = foreground.computeLuminance() + 0.05;
+            expect(
+              first > second ? first / second : second / first,
+              greaterThanOrEqualTo(4.5),
+            );
+          }
+        }
+      }
+    },
+  );
 
-    // unchanged
-    expect(colorScheme.onPrimary, Color(0xff000000));
-    expect(colorScheme.onBackground, Color(0xffffffff));
-    expect(colorScheme.onSurface, Color(0xffffffff));
-  });
+  test('generator is deterministic and respects variant and contrastLevel', () {
+    final pickA = resolveDynamicSchemeSeed(seed: 42);
+    final pickB = resolveDynamicSchemeSeed(seed: 42);
+    expect(pickA.seedColor, pickB.seedColor);
+    expect(pickA.variant, pickB.variant);
+    expect(chromaticDynamicVariants, contains(pickA.variant));
 
-  test('test simple light scenario', () {
-    final colorScheme = randomColorSchemeLight(seed: 0);
-    expect(colorScheme.primary, Color(0xff2c589f));
-    expect(colorScheme.primaryContainer, Color(0xff1f4178));
-    expect(colorScheme.secondary, Color(0xff6a5723));
-    expect(colorScheme.secondaryContainer, Color(0xff4f4017));
-    expect(colorScheme.surface, Color(0xfffbf4f5));
-    expect(colorScheme.background, Color(0xfffeffff));
+    expect(
+      randomColorSchemeDark(seed: 42, shouldPrint: false),
+      randomDynamicColorSchemeDark(seed: 42, shouldPrint: false),
+    );
+    expect(
+      randomColorSchemeLight(seed: 42, shouldPrint: false),
+      randomDynamicColorSchemeLight(seed: 42, shouldPrint: false),
+    );
 
-    // unchanged
-    expect(colorScheme.onPrimary, Color(0xffffffff));
-    expect(colorScheme.onBackground, Color(0xff000000));
-    expect(colorScheme.onSurface, Color(0xff000000));
+    final vibrantLight = randomColorSchemeLight(
+      seed: 42,
+      variant: DynamicSchemeVariant.vibrant,
+      shouldPrint: false,
+    );
+    final highContrastLight = randomColorSchemeLight(
+      seed: 42,
+      variant: DynamicSchemeVariant.vibrant,
+      contrastLevel: 1.0,
+      shouldPrint: false,
+    );
+    expect(vibrantLight.brightness, Brightness.light);
+    expect(highContrastLight.primary, isNot(vibrantLight.primary));
   });
 }

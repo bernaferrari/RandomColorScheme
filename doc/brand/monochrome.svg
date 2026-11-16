@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
+  <defs>
+    <mask id="cutouts">
+      <rect width="108" height="108" fill="#fff"/>
+      <g fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M48 35l7 7M55 35l-7 7"/>
+        <path d="M52.5 35H55v2.5M52.5 42H55v-2.5"/>
+      </g>
+      <circle cx="54" cy="69" r="2.5" fill="#000"/>
+    </mask>
+  </defs>
+  <g fill="#fff" stroke="#000" stroke-width="2" mask="url(#cutouts)">
+    <rect x="43.5" y="29" width="21" height="50" rx="6.5" transform="rotate(-30 54 69)"/>
+    <rect x="43.5" y="26" width="21" height="53" rx="6.5"/>
+    <rect x="43.5" y="29" width="21" height="50" rx="6.5" transform="rotate(30 54 69)"/>
+  </g>
+</svg>

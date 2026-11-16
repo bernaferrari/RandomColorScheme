@@ -7,23 +7,25 @@ jobs:
     runs-on: ubuntu-latest 
     
     steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1.4.0
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
         with:
-          channel: beta
+          channel: stable
+          flutter-version: '3.50.0'
       - run: flutter config --enable-web
       - run: flutter pub get
+      - run: flutter analyze
       - run: flutter test
       - run: |
           cd example/
           flutter pub get
-          flutter build web --release
+          flutter build web --release --no-web-resources-cdn --web-content-hash --base-href /RandomColorScheme/
           git clone --single-branch "https://${{ secrets.PAT }}@github.com/bernaferrari/bernaferrari.github.io.git" "clone_dir"
           rm -rf clone_dir/RandomColorScheme
           cp -r build/web clone_dir/RandomColorScheme
           cd clone_dir
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add *
+          git add -A -- RandomColorScheme
           git commit -m "generate RandomColorScheme"
           git push

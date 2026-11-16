@@ -1,3 +1,10 @@
+## [0.1.5]
+
+* Require Flutter 3.50+ / Dart 3.14+ and standalone `material_ui` types.
+* Generate full Material 3 `ColorScheme` palettes via `ColorScheme.fromSeed` across `chromaticDynamicVariants` (removing the `hsluv` dependency).
+* Add `variant` (`DynamicSchemeVariant`) and `contrastLevel` parameters across `randomColorScheme`, `randomColorSchemeLight`, and `randomColorSchemeDark`, plus `resolveDynamicSchemeSeed` and `DynamicSchemeSeed`.
+* Redesign the interactive example app with live Material 3 specimens, studio dark mode, and Dart syntax-highlighted export.
+
 ## [0.1.4] - 03/03/2023.
 
 * Update API.
